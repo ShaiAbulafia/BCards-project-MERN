@@ -62,7 +62,7 @@ const useCards = () => {
       const cards = await getCards();
       requestStatus(false, null, cards);
     } catch (error) {
-      requestStatus(false, error.message, null);
+      requestStatus(false, error, null);
     }
   }, [requestStatus]);
 
@@ -75,7 +75,7 @@ const useCards = () => {
         return card;
       } catch (error) {
         snack("error", error.message);
-        requestStatus(false, error.message, null, null);
+        requestStatus(false, error, null, null);
       }
     },
     [requestStatus, snack]
@@ -87,7 +87,7 @@ const useCards = () => {
       const cards = await getMyCards();
       requestStatus(false, null, cards);
     } catch (error) {
-      requestStatus(false, error.message, null);
+      requestStatus(false, error, null);
     }
   }, [requestStatus]);
 
@@ -100,7 +100,7 @@ const useCards = () => {
       );
       requestStatus(false, null, favCards);
     } catch (error) {
-      requestStatus(false, error.message, null);
+      requestStatus(false, error, null);
     }
   }, [requestStatus]);
 
@@ -114,8 +114,8 @@ const useCards = () => {
         navigate(ROUTES.MY_CARDS);
         requestStatus(false, null, null, card);
       } catch (error) {
-        snack("error", error.message);
-        requestStatus(false, error.message, null, null);
+        snack("error", error);
+        requestStatus(false, error, null, null);
       }
     },
     [navigate, requestStatus, snack]
@@ -131,7 +131,7 @@ const useCards = () => {
         navigate(ROUTES.MY_CARDS);
       } catch (error) {
         snack("error", error.message);
-        requestStatus(false, error.message, null);
+        requestStatus(false, error, null);
       }
     },
     [navigate, requestStatus, snack]
@@ -146,7 +146,7 @@ const useCards = () => {
         requestStatus(false, null, null);
       } catch (error) {
         snack("error", error.message);
-        requestStatus(false, error.message, null);
+        requestStatus(false, error, null);
       }
     },
     [requestStatus, snack]
@@ -161,7 +161,7 @@ const useCards = () => {
         requestStatus(false, null, cards, card);
       } catch (error) {
         snack("error", error.message);
-        requestStatus(false, error.message, null);
+        requestStatus(false, error, null);
       }
     },
     [requestStatus, snack]
@@ -190,7 +190,7 @@ const useCards = () => {
         }
         snack("error", "Biz number already taken");
       } catch (error) {
-        snack("error", error.message);
+        snack("error", error);
       }
     },
     [requestStatus, snack]
