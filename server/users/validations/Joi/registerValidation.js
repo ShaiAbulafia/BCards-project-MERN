@@ -52,6 +52,7 @@ const registerValidation = (user) => {
       })
       .required(),
     isAdmin: Joi.boolean().allow(""),
+    blockedTill: Joi.date().allow(""),
   });
   return schema.validate(user);
 };

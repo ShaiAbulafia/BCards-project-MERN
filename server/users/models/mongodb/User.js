@@ -33,7 +33,7 @@ const schema = new mongoose.Schema({
   },
   blockedTill: {
     type: Date,
-    default: false,
+    default: "",
   },
 });
 
